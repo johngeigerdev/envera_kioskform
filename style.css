@@ -1,0 +1,17 @@
+* {
+    padding: 10px;
+}
+
+body {
+    background-color: #1E90FF;
+    display: flex;
+    justify-content: center;
+}
+
+#worktype {
+    
+}
+#contactinfo {
+    display: flex;
+    align-items: flex-start;
+}
