@@ -18,28 +18,42 @@
                     <br>
                     <input type="text" id="site" name="site" placeholder="Site Name">
                     <br>
-                    <input type="text" id="gate" placeholder="gate">
+                    <input type="text" id="gate" placeholder="Gate">
                     <br>
-                    <label for="worktype">Work Type:</label>
+                    <input type="text" id="poc" placeholder="Technician (if applicable)">
+                    <br>
+                </div>
+
+                <container id="additionalinfo">
+                    <div class="datainputs">
+                        <label for="need-by">Need-By Date</label>
+                            <input type="date" id="need-by" name="date">
+                        <label for="time">Testing time (if applicable)</label>
+                            <input type="time" id="appt">
+
+                    </div>
+                    <div class="datainputs">
+                        <label for="worktype">Work Type:</label>
                         <select name="scannertype" id="scannertype">
                             <option value="video">New Kiosk PC Setup</option>
                             <option value="white rhino">Scanner Upgrade</option>
                         </select>
-                        <br>
-                    <label for="kiosktype">Kiosk Type:</label>
-                        <select name="kiosk" id="kiosk">
-                            <option value="video">VIDEO</option>
-                            <option value="white rhino">WHITE RHINO</option>
-                            <option value="Black QR">Black QR</option>
-                        </select>
-                        <br>
-                    <label for="scannertype">Scanner Type:</label>
+                        <label for="kiosktype">Kiosk Type:</label>
+                            <select name="kiosk" id="kiosk">
+                                <option value="video">VIDEO</option>
+                                <option value="white rhino">WHITE RHINO</option>
+                                <option value="Black QR">Black QR</option>
+                            </select>
+                            <br>
+                        <label for="scannertype">Scanner Type:</label>
                         <select name="scannertype" id="scannertype">
                             <option value="video">ADR100</option>
                             <option value="white rhino">Acuant</option>
                             <option value="white rhino">QR Reader</option>
-                        </select>
-                        <br>
+                        </select>  
+                    </div>
+                </container>
+                <br>
                 <button>Submit</button>
             </form>
         </div>

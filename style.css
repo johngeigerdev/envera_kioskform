@@ -1,15 +1,14 @@
 * {
     padding: 10px;
+    font-size: 15px;
 }
 body {
     background-color: #4682B4;
     text-align: center;
+    font-weight: bold;
 }
 img {
     border-radius: 30px;
-}
-#contactinfo {
-    margin: auto;
 }
 form {
     background-color: #fff;
@@ -20,13 +19,13 @@ form {
     max-width: 600px;
     border-radius: 10px;
     margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
 }
 form h3 {
     color: black;
     font-weight: 800;
     margin-bottom: 20px;
     margin: auto;
-
 }
 form input, form textarea, select {
     border: 0;
@@ -36,7 +35,13 @@ form input, form textarea, select {
     outline: none;
     background: #f5f5f5;
 }
-
+#additionalinfo {
+    padding: 20px;
+    display: flex;
+}
+#additionalinfo div {
+    margin: 20px;
+}
 form button {
     padding: 15px;
     background: #ff5361;
@@ -48,4 +53,7 @@ form button {
     width: 150px;
     margin: 20px auto 0;
     border-radius: 30px;
+}
+input {
+    font-size: 15px;
 }
