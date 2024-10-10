@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiosk Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
+
 </head>
     <body>   
         <div class="container">
-            <form action="">
-                <img src="/images/Envera-Site-Logo-1.webp" alt="envera logo">
+            <form onsubmit="sendEmail(); reset(); return false;">
+                <img src="./images/Envera-Site-Logo-1.webp" alt="envera logo">
                 <h3>Kiosk Work Request</h3>
                 <div id="contactinfo">
+                    <input type="text" id="subject" placeholder="Subject" min="2" max="50">
+                    <br>
                     <input type="text" id="name" placeholder="Your Name" min="2" max="50">
                     <br>
                     <input type="email" id="email" placeholder="Your Email">
@@ -26,36 +29,72 @@
 
                 <container id="additionalinfo">
                     <div class="datainputs">
-                        <label for="need-by">Need-By Date</label>
-                            <input type="date" id="need-by" name="date">
+                        <label for="needby">Need-By Date</label>
+                            <input type="date" id="needby" name="date">
                         <label for="time">Testing time (if applicable)</label>
-                            <input type="time" id="appt">
+                            <input type="time" id="time">
 
                     </div>
                     <div class="datainputs">
                         <label for="worktype">Work Type:</label>
-                        <select name="scannertype" id="scannertype">
-                            <option value="video">New Kiosk PC Setup</option>
-                            <option value="white rhino">Scanner Upgrade</option>
+                        <select name="worktype" id="worktype">
+                            <option value="New Kiosk PC Setup">New Kiosk PC Setup</option>
+                            <option value="Scanner Upgrade">Scanner Upgrade</option>
+                            <option value="PC Swap">existing kiosk-PC swap</option>
                         </select>
                         <label for="kiosktype">Kiosk Type:</label>
-                            <select name="kiosk" id="kiosk">
-                                <option value="video">VIDEO</option>
-                                <option value="white rhino">WHITE RHINO</option>
-                                <option value="Black QR">Black QR</option>
+                            <select name="kiosktype" id="kiosktype">
+                                <option value="Video">VIDEO</option>
+                                <option value="White Elephant">WHITE ELEPHANT</option>
+                                <option value="QRPC">QRPC</option>
                             </select>
                             <br>
                         <label for="scannertype">Scanner Type:</label>
                         <select name="scannertype" id="scannertype">
-                            <option value="video">ADR100</option>
-                            <option value="white rhino">Acuant</option>
-                            <option value="white rhino">QR Reader</option>
+                            <option value="ADR100">ADR100</option>
+                            <option value="Acuant">Acuant</option>
+                            <option value="QR Reader">QR Reader</option>
                         </select>  
                     </div>
                 </container>
                 <br>
-                <button>Submit</button>
+                <button onClick="sendEmail()">Submit</button>
             </form>
         </div>
+
+        <script src="https://smtpjs.com/v3/smtp.js">
+        </script>
+
+        <script>
+            function sendEmail() {
+        let subject = document.getElementById('subject').value;
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let site = document.getElementById('site').value;
+        let gate = document.getElementById('gate').value;
+        let poc = document.getElementById('poc').value;
+        let needby = document.getElementById('needby').value;
+        let time = document.getElementById('time').value;
+        let worktype = document.getElementById('worktype').value;
+        let kiosktype = document.getElementById('kiosktype').value;
+        let scannertype = document.getElementById('scannertype').value;
+
+        let body = "Subject: " + name + "<br/> Name: " + name + "<br/> Email: " + email + "<br/> Site Name: " + site + 
+        "<br/> Gate: " + gate + "<br/> Technician: " + poc + "<br/> Need-By Date: " + needby + "<br/> Arrival Time: " + time + 
+        "<br/> Work Type: " + worktype +  "<br/> Kiosk Type: " + kiosktype +"<br/> Scanner Type: " + scannertype;
+
+                    Email.send({
+                SecureToken: "ef141fca-b2d2-4cc2-be89-ece556c2a480",
+                To : 'excellerefwd@enverasystems.com',
+                From : 'excellerefwd@enverasystems.com',
+                Subject : document.getElementById("subject").value,
+                Body : body,
+                }).then(
+                message => alert(message)
+                );
+            }
+
+        </script>
+
     </body>
 </html>
